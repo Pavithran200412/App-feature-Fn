@@ -78,7 +78,19 @@ html, body {
   .back-button:hover {
     background-color: #8d4fd4;
   }
-  
+
+  /* Box Styling */
+.box {
+  background-color: #ffcccb;
+  border: 2px solid red;
+  padding: 20px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+  color: #1a1a1a; /* 👈 Change this to your preferred color */
+}
+
   /* Responsive adjustments */
   @media (max-width: 768px) {
     .top-section,
