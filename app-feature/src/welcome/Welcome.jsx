@@ -4,15 +4,33 @@ import "./Welcome.css";
 
 function Welcome() {
   const navigate = useNavigate();
-  const [searchQuery, setSearchQuery] = useState("");
+  const [appName, setAppName] = useState("");
 
-  const handleSearch = () => {
-    if (searchQuery.trim() !== "") {
+  const handleSearch = async () => {
+    if (appName.trim() === "") return;
+
+    try {
+      const res = await fetch("http://localhost:5000/getAppDetails", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ appName })
+      });
+
+      const data = await res.json();
+
       navigate("/features", {
         state: {
-          appName: searchQuery,
-        },
+          appName: data.appName,
+          features: data.features,
+          domainName: data.domainName,
+          googleRating: data.googleRating,
+          analysisRating: data.analysisRating
+        }
       });
+    } catch (err) {
+      console.error("Failed to fetch app details", err);
     }
   };
 
@@ -25,14 +43,14 @@ function Welcome() {
   return (
     <div className="container">
       <h1 className="heading">App-Feature Analysis and Comment-Driven Rating System</h1>
-      
+
       <div className="search-box">
         <i className="fas fa-search"></i>
         <input
           type="text"
           placeholder="Search The App"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
+          value={appName}
+          onChange={(e) => setAppName(e.target.value)}
           onKeyDown={handleKeyPress}
         />
         <div className="search-icons">
@@ -44,8 +62,7 @@ function Welcome() {
       <button className="search-button" onClick={handleSearch}>Search</button>
 
       <div className="about">
-        {/* About text here */}
-        The App - Feature Analysis and Comment - Driven Rating System is a comprehensive feedback and evaluation framework designed to provide in - depth insights into mobile or web applications based on user interactions and opinions.Instead of relying solely on overall star ratings, this system allows users to rate individual features of an app — such as user interface, performance, security, usability, and battery efficiency — offering a more granular and accurate assessment.It may also include automated analysis tools that utilize natural language processing (NLP) to extract commonly mentioned features from user comments and group them accordingly, enabling comparative analysis between similar applications.In addition, the comment - driven rating component enhances the feedback loop by analyzing user - generated reviews to determine sentiment and relevance.Even when users leave only a comment without a star rating, sentiment analysis algorithms can predict and assign a likely score based on the tone and keywords used.The system may also incorporate credibility scoring, which weighs reviews based on the reviewer 's history, the length and detail of the comment, and how other users engage with it (such as likes or dislikes). Advanced versions of this system can even detect and flag fake or spam reviews using AI models trained on patterns of suspicious behavior. Overall, this system benefits both users and developers—users gain a transparent and feature-focused perspective when selecting apps, while developers receive targeted feedback for continuous improvement. It can be implemented in app marketplaces, review platforms, or beta-testing environments, making it a valuable tool in enhancing app quality and user satisfaction.
+        The App - Feature Analysis and Comment - Driven Rating System is a comprehensive feedback and evaluation framework designed to provide in-depth insights into mobile or web applications based on user interactions and opinions. Instead of relying solely on overall star ratings, this system allows users to rate individual features of an app — such as user interface, performance, security, usability, and battery efficiency — offering a more granular and accurate assessment. It may also include automated analysis tools that utilize natural language processing (NLP) to extract commonly mentioned features from user comments and group them accordingly, enabling comparative analysis between similar applications. In addition, the comment-driven rating component enhances the feedback loop by analyzing user-generated reviews to determine sentiment and relevance. Even when users leave only a comment without a star rating, sentiment analysis algorithms can predict and assign a likely score based on the tone and keywords used. The system may also incorporate credibility scoring, which weighs reviews based on the reviewer's history, the length and detail of the comment, and how other users engage with it (such as likes or dislikes). Advanced versions of this system can even detect and flag fake or spam reviews using AI models trained on patterns of suspicious behavior. Overall, this system benefits both users and developers — users gain a transparent and feature-focused perspective when selecting apps, while developers receive targeted feedback for continuous improvement. It can be implemented in app marketplaces, review platforms, or beta-testing environments, making it a valuable tool in enhancing app quality and user satisfaction.
       </div>
     </div>
   );

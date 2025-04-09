@@ -1,109 +1,201 @@
-/* Full-Screen Layout */
+/* General Styles */
 html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    background-color: #d9eaf7; /* Light blue background */
-    font-family: Arial, sans-serif;
-  }
-  
-  .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    height: 100vh; /* Full height */
-    width: 100vw; /* Full width */
-    padding: 20px;
-    box-sizing: border-box;
-    gap: 20px; /* Space between sections */
-  }
-  
-  /* Sections */
-  .top-section,
-  .middle-section,
-  .bottom-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    gap: 20px; /* Space between boxes */
-  }
-  
-  /* Box Styling */
-  .box {
-    background-color: #ffcccb;
-    border: 2px solid red;
-    padding: 20px;
-    text-align: center;
-    font-weight: bold;
-    border-radius: 8px;
-    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
-    min-height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  /* Responsive Box Sizes */
-  .small {
-    flex: 1;
-    max-width: 20%;
-  }
-  
-  .medium {
-    flex: 1;
-    max-width: 45%;
-  }
-  
-  .large {
-    flex: 2;
-    max-width: 70%;
-  }
-  
-  /* Back Button Styling */
-  .back-button {
-    margin-top: 20px;
-    padding: 12px 24px;
-    font-size: 16px;
-    background-color: #eb5959;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
-    align-self: flex-start; /* Align to left if needed */
-  }
-  
-  .back-button:hover {
-    background-color: #8d4fd4;
-  }
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #d9eaf7;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-  /* Box Styling */
+/* Container */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  gap: 40px;
+}
+
+/* Section Layout */
+.top-section,
+.middle-section,
+.bottom-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Box Styling */
 .box {
   background-color: #ffcccb;
   border: 2px solid red;
-  padding: 20px;
+  padding: 20px 24px;
+  border-radius: 10px;
+  font-weight: 600;
+  color: #1a1a1a;
+  box-shadow: 3px 4px 8px rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease;
   text-align: center;
-  font-weight: bold;
-  border-radius: 8px;
-  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
-  color: #1a1a1a; /* 👈 Change this to your preferred color */
 }
 
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .top-section,
-    .middle-section,
-    .bottom-section {
-      flex-direction: column;
-      align-items: stretch;
-    }
-  
-    .small,
-    .medium,
-    .large {
-      max-width: 100%;
-    }
+.box:hover {
+  transform: translateY(-5px);
+  background-color: #ffe5e5;
+}
+
+/* Sizing */
+.small { flex: 1 1 200px; max-width: 25%; }
+.medium { flex: 1 1 400px; max-width: 45%; }
+.large { flex: 1 1 600px; max-width: 70%; }
+
+/* App Name Section */
+.app-name-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.app-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+.app-icon:hover {
+  transform: scale(1.2);
+}
+.app-name {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #c43e3e;
+}
+
+/* Domain Heading */
+.domain-heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #b53f3f;
+  text-align: center;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Feature Box */
+.feature-box {
+  background-color: #ffd6d6; /* Light pink as in your image */
+  border: 2px solid red;
+  padding: 30px 24px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Box heading */
+.box-text {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+}
+
+/* Feature list aligned vertically */
+.feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Individual feature */
+.feature-card {
+  background: transparent;
+  border: none;
+  padding: 4px 8px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #222;
+}
+
+/* Ratings Section */
+.rating-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
+}
+.stars {
+  font-size: 24px;
+  color: rgb(0, 0, 0);
+  line-height: 1;
+}
+.rating-value {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Button */
+.back-button {
+  padding: 12px 30px;
+  font-size: 16px;
+  background-color: #eb5959;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  margin-top: 40px;
+}
+.back-button:hover {
+  background-color: #8d4fd4;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .top-section,
+  .middle-section,
+  .bottom-section {
+    flex-direction: column;
+    align-items: center;
   }
-  
+
+  .small,
+  .medium,
+  .large {
+    max-width: 100%;
+  }
+
+  .app-name {
+    font-size: 1.8rem;
+  }
+
+  .domain-heading {
+    font-size: 2rem;
+  }
+
+  .back-button {
+    width: 100%;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
