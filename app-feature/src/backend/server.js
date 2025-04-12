@@ -53,7 +53,7 @@ const featuresMapping = {
   telegram: ["Channels", "Bots", "Secret Chats"]
 };
 
-// API Route
+// API: Get App Details
 app.post('/getAppDetails', (req, res) => {
   const { appName } = req.body;
   const lowerApp = appName.trim().toLowerCase();
@@ -67,11 +67,93 @@ app.post('/getAppDetails', (req, res) => {
     domainName,
     domainDescription,
     features,
-    googleRating: (Math.random() * 2 + 3).toFixed(1), // Random between 3.0 and 5.0
+    googleRating: (Math.random() * 2 + 3).toFixed(1), // Between 3.0 to 5.0
     analysisRating: (Math.random() * 2 + 3).toFixed(1)
   };
 
   res.json(response);
+});
+
+// Sample Domain Data for DomainPage
+const allDomains = [
+  {
+    domain: "Social Media",
+    apps: ["Facebook", "Instagram", "Twitter"],
+    featureScores: {
+      Facebook: { "News Feed": 4, "Live Streaming": 5, "Marketplace": 3 },
+      Instagram: { "Stories": 5, "Reels": 4, "Explore": 4 },
+      Twitter: { "Tweet": 5, "Retweet": 4, "Trends": 3 }
+    }
+  },
+  {
+    domain: "E-Commerce",
+    apps: ["Amazon", "Flipkart"],
+    featureScores: {
+      Amazon: { "Cart": 5, "Prime": 4, "Reviews": 4 },
+      Flipkart: { "Deals": 4, "Ratings": 5, "Wishlist": 3 }
+    }
+  },
+  {
+    domain: "Food Delivery",
+    apps: ["Zomato", "Swiggy"],
+    featureScores: {
+      Zomato: { "Restaurant Search": 5, "Menu": 4, "Reviews": 4 },
+      Swiggy: { "Food Delivery": 5, "Offers": 4, "Tracking": 4 }
+    }
+  },
+  {
+    domain: "Entertainment",
+    apps: ["Netflix", "Hotstar"],
+    featureScores: {
+      Netflix: { "Streaming": 5, "My List": 4, "Categories": 4 },
+      Hotstar: { "Live Sports": 5, "Series": 4, "Watchlist": 3 }
+    }
+  },
+  {
+    domain: "Messaging",
+    apps: ["WhatsApp", "Telegram"],
+    featureScores: {
+      WhatsApp: { "Chats": 5, "Status": 4, "Calls": 4 },
+      Telegram: { "Channels": 5, "Bots": 4, "Secret Chats": 4 }
+    }
+  },
+  {
+    domain: "Professional Networking",
+    apps: ["LinkedIn"],
+    featureScores: {
+      LinkedIn: { "Jobs": 5, "Messaging": 4, "Connections": 4 }
+    }
+  }
+];
+
+// API: Get All Domains
+app.get('/getAllDomains', (req, res) => {
+  res.json(allDomains);
+});
+
+// API: Get Domain Details (used in DomainPage)
+app.post('/getDomainDetails', (req, res) => {
+  const { domainName } = req.body;
+
+  if (!domainName) {
+    return res.status(400).json({ error: "domainName is required" });
+  }
+
+  const description = domainDescriptions[domainName] || "No description available.";
+
+  const domainData = allDomains.find(d => d.domain === domainName);
+
+  if (!domainData) {
+    return res.status(404).json({ error: "Domain not found" });
+  }
+
+  const apps = domainData.apps;
+
+  res.json({
+    domainName,
+    domainDescription: description,
+    apps
+  });
 });
 
 // Start Server

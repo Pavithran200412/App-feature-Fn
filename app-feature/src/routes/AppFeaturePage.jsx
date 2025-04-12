@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Line } from "react-chartjs-2";
 import {
@@ -14,60 +14,32 @@ import "./AppFeaturePage.css";
 
 ChartJS.register(LineElement, PointElement, CategoryScale, LinearScale, Tooltip, Legend);
 
-const domainMapping = {
-  facebook: "Social Media",
-  instagram: "Social Media",
-  twitter: "Social Media",
-  amazon: "E-Commerce",
-  flipkart: "E-Commerce",
-  snapchat: "Social Media",
-  linkedin: "Professional Networking",
-  zomato: "Food Delivery",
-  swiggy: "Food Delivery",
-  netflix: "Entertainment",
-  hotstar: "Entertainment",
-  whatsapp: "Messaging",
-  telegram: "Messaging",
-};
-
-const domainDescriptions = {
-  "Social Media": "Social Media platforms allow users to create, share content, and connect globally.",
-  "E-Commerce": "E-Commerce platforms enable online buying and selling of products and services.",
-  "Professional Networking": "Platforms that connect professionals for networking, job opportunities, and collaborations.",
-  "Food Delivery": "Services that deliver meals from restaurants to users at their doorstep.",
-  "Entertainment": "Apps offering streaming of movies, shows, and videos for entertainment.",
-  "Messaging": "Apps designed for real-time text, voice, and media communication.",
-  "General": "This app belongs to a general domain not categorized specifically."
-};
-
-const googleRatings = {
-  facebook: 4.1,
-  instagram: 4.4,
-  twitter: 4.0,
-  amazon: 4.5,
-  flipkart: 4.3,
-  snapchat: 4.2,
-  linkedin: 4.3,
-  zomato: 4.0,
-  swiggy: 4.1,
-  netflix: 4.6,
-  hotstar: 4.4,
-  whatsapp: 4.3,
-  telegram: 4.2,
-};
-
 const AppFeaturePage = () => {
   const location = useLocation();
   const navigate = useNavigate();
-
   const appName = location.state?.appName || "N/A";
-  const features = location.state?.features || [];
-  const lowerApp = appName.trim().toLowerCase();
 
-  const domainName = domainMapping[lowerApp] || "General";
-  const domainDesc = domainDescriptions[domainName];
-  const googleRating = googleRatings[lowerApp] || "N/A";
-  const analysisRating = (Math.random() * (5 - 3.5) + 3.5).toFixed(1); // Simulated rating
+  const [appDetails, setAppDetails] = useState(null);
+
+  useEffect(() => {
+    if (appName && appName !== "N/A") {
+      fetch("http://localhost:5000/getAppDetails", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ appName }),
+      })
+        .then((res) => res.json())
+        .then((data) => setAppDetails(data))
+        .catch((err) => console.error("Error fetching app details:", err));
+    }
+  }, [appName]);
+
+  if (!appDetails) {
+    return <div className="loading">Loading app details...</div>;
+  }
+
+  const { domainName, features, domainDescription, googleRating, analysisRating } = appDetails;
+  const lowerApp = appName.trim().toLowerCase();
 
   const featureScores = features.map((feature) => ({
     feature,
@@ -101,8 +73,7 @@ const AppFeaturePage = () => {
             const index = context.dataIndex;
             const feature = featureScores[index].feature;
             const score = featureScores[index].score;
-            const app = featureScores[index].app;
-            return `${app} has a score of ${score} for ${feature}`;
+            return `${appName} has a score of ${score} for ${feature}`;
           },
         },
       },
@@ -188,7 +159,7 @@ const AppFeaturePage = () => {
       <div className="bottom-section">
         <div className="box small">
           <span className="box-text">Domain Description</span>
-          <p className="box-content">{domainDesc}</p>
+          <p className="box-content">{domainDescription}</p>
         </div>
 
         <div className="box small">
@@ -208,9 +179,18 @@ const AppFeaturePage = () => {
         </div>
       </div>
 
-      <button className="back-button" onClick={() => navigate("/")}>
-        Back to Home
-      </button>
+      <div className="button-group">
+        <button className="back-button" onClick={() => navigate("/")}>
+          Back to Home
+        </button>
+        <button
+  className="domain-button"
+  onClick={() => navigate("/domains", { state: { appName, domainName } })}
+>
+  Go to Domain Page
+</button>
+
+      </div>
     </div>
   );
 };

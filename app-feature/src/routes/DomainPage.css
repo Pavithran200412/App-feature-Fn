@@ -1,0 +1,86 @@
+.domain-container {
+  background-color: #ffc5c0;
+  padding: 30px;
+  border: 2px solid red;
+  border-radius: 10px;
+  max-width: 1200px;
+  margin: 50px auto;
+  box-sizing: border-box;
+}
+
+.domain-title {
+  text-align: center;
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.chart-section {
+  margin: 20px 0;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.domain-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.domain-box {
+  background-color: white;
+  border: 2px solid gray;
+  border-radius: 8px;
+  height: 350px;
+  flex: 1 1 45%;
+  max-width: 500px;
+  min-width: 300px;
+  padding: 20px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.domain-box:hover {
+  transform: scale(1.03);
+}
+
+.app-logo {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+}
+
+.box-label {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #222;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.button-wrapper {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.back-button {
+  padding: 10px 20px;
+  background-color: #df4848;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  background-color: #6e32bd;
+}

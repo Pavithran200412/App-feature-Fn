@@ -59,10 +59,11 @@ html, body {
 
 /* App Name Section */
 .app-name-section {
-  display: flex;
   align-items: center;
+  display: flex;
   gap: 12px;
-  margin-bottom: 20px;
+  margin-bottom: -50px;
+  animation: fadeIn 0.8s ease-in-out;
 }
 .app-icon {
   width: 50px;
@@ -81,16 +82,18 @@ html, body {
 
 /* Domain Heading */
 .domain-heading {
+  text-align: center;
   font-size: 2.5rem;
   font-weight: bold;
-  color: #b53f3f;
-  text-align: center;
+  color: rgb(39, 24, 241);
+  margin-bottom: -20px;
   animation: fadeIn 0.8s ease-in-out;
 }
 
+
 /* Feature Box */
 .feature-box {
-  background-color: #ffd6d6; /* Light pink as in your image */
+  background-color: #ffd6d6;
   border: 2px solid red;
   padding: 30px 24px;
   border-radius: 14px;
@@ -144,8 +147,9 @@ html, body {
   color: #333;
 }
 
-/* Button */
-.back-button {
+/* Button Styles */
+.back-button,
+.domain-button {
   padding: 12px 30px;
   font-size: 16px;
   background-color: #eb5959;
@@ -156,8 +160,20 @@ html, body {
   transition: background 0.3s ease-in-out;
   margin-top: 40px;
 }
-.back-button:hover {
+
+.back-button:hover,
+.domain-button:hover {
   background-color: #8d4fd4;
+}
+
+/* Button Container */
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  flex-wrap: wrap;
 }
 
 /* Responsive */
@@ -183,8 +199,10 @@ html, body {
     font-size: 2rem;
   }
 
-  .back-button {
+  .back-button,
+  .domain-button {
     width: 100%;
+    text-align: center;
   }
 }
 
