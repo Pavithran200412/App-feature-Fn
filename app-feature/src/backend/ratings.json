@@ -1,0 +1,91 @@
+{
+    "facebook": {
+      "googleRating": 4.5,
+      "analysisRating": 4.2
+    },
+    "instagram": {
+      "googleRating": 4.6,
+      "analysisRating": 4.3
+    },
+    "amazon": {
+      "googleRating": 4.7,
+      "analysisRating": 4.5
+    },
+    "flipkart": {
+      "googleRating": 4.3,
+      "analysisRating": 4.1
+    },
+    "whatsapp": {
+      "googleRating": 4.8,
+      "analysisRating": 4.7
+    },
+    "telegram": {
+      "googleRating": 4.5,
+      "analysisRating": 4.4
+    },
+    "netflix": {
+      "googleRating": 4.7,
+      "analysisRating": 4.5
+    },
+    "hotstar": {
+      "googleRating": 4.3,
+      "analysisRating": 4.2
+    },
+    "zomato": {
+      "googleRating": 4.2,
+      "analysisRating": 4.0
+    },
+    "kinemastervideoeditor": {
+      "googleRating": 4.3,
+      "analysisRating": 3.8
+    },
+    "filmrprovideoeditor": {
+      "googleRating": 3.0,
+      "analysisRating": 3.4
+    },
+    "powerdirector": {
+      "googleRating": 4.4,
+      "analysisRating": 4.4
+    },
+    "photoeditor": {
+      "googleRating": 3.4,
+      "analysisRating": 3.5
+    },
+    "pixlraiartphotoeditor": {
+      "googleRating": 4.2,
+      "analysisRating": 3.0
+    },
+    "snaptuneaiphotoeditor": {
+      "googleRating": 3.6,
+      "analysisRating": 4.4
+    },
+    "picplusphotoeditorpro": {
+      "googleRating": 3.9,
+      "analysisRating": 3.8
+    },
+    "blurrrcapcutprovideoeditor": {
+      "googleRating": 3.6,
+      "analysisRating": 3.6
+    },
+    "picsartaiphotoeditorvideo": {
+      "googleRating": 4.2,
+      "analysisRating": 3.6
+    },
+    "pizapdesigneditphotos": {
+      "googleRating": 3.0,
+      "analysisRating": 3.7
+    },
+    "captionsfortalkingvideos": {
+      "googleRating": 3.1,
+      "analysisRating": 3.3
+    },
+    "stopmotionstudio": {
+      "googleRating": 3.8,
+      "analysisRating": 3.5
+    },
+    "adobepremiererush": {
+      "googleRating": 3.8,
+      "analysisRating": 3.5
+    }
+  }
+  

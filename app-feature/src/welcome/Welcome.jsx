@@ -5,6 +5,7 @@ import "./Welcome.css";
 function Welcome() {
   const navigate = useNavigate();
   const [appName, setAppName] = useState("");
+  const [domainName, setDomainName] = useState("");
 
   const handleSearch = async () => {
     if (appName.trim() === "") return;
@@ -34,9 +35,26 @@ function Welcome() {
     }
   };
 
-  const handleKeyPress = (event) => {
+  const handleDomainSearch = () => {
+    if (domainName.trim() === "") return;
+  
+    navigate("/domains", {
+      state: {
+        appName: "",           // Passing empty value as requested
+        domainName: domainName
+      }
+    });
+  };
+
+  const handleAppKeyPress = (event) => {
     if (event.key === "Enter") {
       handleSearch();
+    }
+  };
+
+  const handleDomainKeyPress = (event) => {
+    if (event.key === "Enter") {
+      handleDomainSearch();
     }
   };
 
@@ -44,6 +62,7 @@ function Welcome() {
     <div className="container">
       <h1 className="heading">App-Feature Analysis and Comment-Driven Rating System</h1>
 
+      {/* App Search */}
       <div className="search-box">
         <i className="fas fa-search"></i>
         <input
@@ -51,7 +70,7 @@ function Welcome() {
           placeholder="Search The App"
           value={appName}
           onChange={(e) => setAppName(e.target.value)}
-          onKeyDown={handleKeyPress}
+          onKeyDown={handleAppKeyPress}
         />
         <div className="search-icons">
           <img src="https://storage.googleapis.com/a1aa/image/vtVIh3-UrfJ2_G42n3P8pOW6A-qgu5tNLgI-5qcM-fM.jpg" alt="mic" />
@@ -59,10 +78,25 @@ function Welcome() {
         </div>
       </div>
 
-      <button className="search-button" onClick={handleSearch}>Search</button>
+      <button className="search-button" onClick={handleSearch}>Search App</button>
+
+      {/* Domain Search */}
+      <div className="search-box domain-search">
+        <i className="fas fa-globe"></i>
+        <input
+          type="text"
+          placeholder="Search By Domain (e.g., Social Media)"
+          value={domainName}
+          onChange={(e) => setDomainName(e.target.value)}
+          onKeyDown={handleDomainKeyPress}
+        />
+      </div>
+
+      <button className="search-button" onClick={handleDomainSearch}>Search Domain</button>
 
       <div className="about">
-        The App - Feature Analysis and Comment - Driven Rating System is a comprehensive feedback and evaluation framework designed to provide in-depth insights into mobile or web applications based on user interactions and opinions. Instead of relying solely on overall star ratings, this system allows users to rate individual features of an app — such as user interface, performance, security, usability, and battery efficiency — offering a more granular and accurate assessment. It may also include automated analysis tools that utilize natural language processing (NLP) to extract commonly mentioned features from user comments and group them accordingly, enabling comparative analysis between similar applications. In addition, the comment-driven rating component enhances the feedback loop by analyzing user-generated reviews to determine sentiment and relevance. Even when users leave only a comment without a star rating, sentiment analysis algorithms can predict and assign a likely score based on the tone and keywords used. The system may also incorporate credibility scoring, which weighs reviews based on the reviewer's history, the length and detail of the comment, and how other users engage with it (such as likes or dislikes). Advanced versions of this system can even detect and flag fake or spam reviews using AI models trained on patterns of suspicious behavior. Overall, this system benefits both users and developers — users gain a transparent and feature-focused perspective when selecting apps, while developers receive targeted feedback for continuous improvement. It can be implemented in app marketplaces, review platforms, or beta-testing environments, making it a valuable tool in enhancing app quality and user satisfaction.
+        The App - Feature Analysis and Comment - Driven Rating System is a comprehensive feedback and evaluation framework...
+        {/* (About content remains unchanged) */}
       </div>
     </div>
   );

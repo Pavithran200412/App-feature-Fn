@@ -1,0 +1,213 @@
+{
+  "Social Media": {
+    "Facebook": { "News Feed": 4, "Live Streaming": 5, "Marketplace": 3 },
+    "Instagram": { "Stories": 5, "Reels": 4, "Explore": 4 },
+    "Twitter": { "Tweet": 5, "Retweet": 4, "Trends": 3 }
+  },
+  "E-Commerce": {
+    "Amazon": { "Cart": 5, "Prime": 4, "Reviews": 4 },
+    "Flipkart": { "Deals": 4, "Ratings": 5, "Wishlist": 3 }
+  },
+  "Food Delivery": {
+    "Zomato": { "Restaurant Search": 5, "Menu": 4, "Reviews": 4 },
+    "Swiggy": { "Food Delivery": 5, "Offers": 4, "Tracking": 4 }
+  },
+  "Entertainment": {
+    "Netflix": { "Streaming": 5, "My List": 4, "Categories": 4 },
+    "Hotstar": { "Live Sports": 5, "Series": 4, "Watchlist": 3 }
+  },
+  "Messaging": {
+    "WhatsApp": { "Chats": 5, "Status": 4, "Calls": 4 },
+    "Telegram": { "Channels": 5, "Bots": 4, "Secret Chats": 4 }
+  },
+  "Professional Networking": {
+    "LinkedIn": { "Jobs": 5, "Messaging": 4, "Connections": 4 }
+  },
+  "General": {
+    "Snapchat": { "Streaks": 5, "Filters": 4, "Discover": 4 }
+  },
+  "Video Editing": {
+  "captionsfortalkingvideos": {
+    "Collaboration & Access": 1.08,
+    "Technical Issues": 31.68,
+    "Monetization": 631.62,
+    "Content": 311.52,
+    "Video Features": 990,
+    "AI Features": 2205,
+    "Authentication": 27.6,
+    "User Interface": 311.25,
+    "Performance": 45.76
+  },
+  "stopmotionstudio": {
+    "Monetization": 736.02,
+    "Video Features": 1227.6,
+    "AI Features": 2755,
+    "User Interface": 318.72,
+    "Technical Issues": 17.28,
+    "Social Media": 7.84,
+    "Content": 1.18,
+    "Performance": 40.04,
+    "Authentication": 6.9
+  },
+  "blurrrcapcutprovideoeditor": {
+    "Performance": 986.7,
+    "Video Features": 8642.7,
+    "AI Features": 3385,
+    "User Interface": 351.09,
+    "Monetization": 349.74,
+    "Content": 102.66,
+    "Offline Features": 46.92,
+    "Advertising": 40.28,
+    "Technical Issues": 168.48,
+    "Security & Privacy": 22.44,
+    "Camera & Media": 69.44,
+    "Gaming & Interaction": 18.72,
+    "Collaboration & Access": 71.28,
+    "Social Media": 31.36,
+    "Customization": 56.65,
+    "Learning & Tutorials": 44.88,
+    "Audio Features": 80.24,
+    "Maps & Location": 116.82
+  },
+  "filmrprovideoeditor": {
+    "AI Features": 735,
+    "User Interface": 221.61,
+    "Video Features": 1311.75,
+    "Monetization": 57.42,
+    "Authentication": 26.45,
+    "Performance": 14.3,
+    "Content": 15.34,
+    "Technical Issues": 8.64
+  },
+  "snaptuneaiphotoeditor": {
+    "AI Features": 19905,
+    "Monetization": 195.75,
+    "Video Features": 3573.9,
+    "Content": 10.62,
+    "Performance": 54.34,
+    "User Interface": 1568.7,
+    "Social Media": 6.72,
+    "Maps & Location": 28.32,
+    "Gaming & Interaction": 3.12,
+    "Camera & Media": 8.96,
+    "Customization": 5.15,
+    "Advertising": 2.12
+  },
+  "powerdirector": {
+    "Video Features": 15666.75,
+    "Monetization": 2137.59,
+    "User Interface": 3540.78,
+    "Advertising": 148.4,
+    "Camera & Media": 120.96,
+    "AI Features": 9505,
+    "Audio Features": 270.22,
+    "Gaming & Interaction": 130,
+    "Technical Issues": 168.48,
+    "Maps & Location": 499.14,
+    "Social Media": 287.84,
+    "Content": 122.72,
+    "Learning & Tutorials": 71.4,
+    "Accessibility": 19,
+    "Performance": 140.14,
+    "Authentication": 23,
+    "Customization": 52.53,
+    "Security & Privacy": 48.96,
+    "Collaboration & Access": 48.6,
+    "Offline Features": 24.48
+  },
+  "pixlraiartphotoeditor": {
+    "Video Features": 7019.1,
+    "AI Features": 9155,
+    "Monetization": 1693.89,
+    "Performance": 64.35,
+    "Technical Issues": 146.88,
+    "User Interface": 1292.31,
+    "Content": 89.68,
+    "Social Media": 4.48,
+    "Authentication": 19.55
+  },
+  "adobepremiererush": {
+    "Collaboration & Access": 365.04,
+    "Video Features": 32996.7,
+    "Audio Features": 835.44,
+    "Monetization": 1759.14,
+    "Performance": 1068.21,
+    "User Interface": 5978.49,
+    "AI Features": 11100,
+    "Authentication": 161,
+    "Technical Issues": 1408.32,
+    "Learning & Tutorials": 99.96,
+    "Maps & Location": 796.5,
+    "Content": 205.32,
+    "Camera & Media": 156.8,
+    "Offline Features": 77.52,
+    "Security & Privacy": 44.88,
+    "Social Media": 434.56,
+    "Gaming & Interaction": 120.64,
+    "Customization": 96.82,
+    "Advertising": 78.44,
+    "Accessibility": 10
+  },
+  "picsartaiphotoeditorvideo": {
+    "Monetization": 2286.36,
+    "AI Features": 11360,
+    "Performance": 102.96,
+    "Video Features": 8325.9,
+    "User Interface": 1347.09,
+    "Content": 25.96,
+    "Authentication": 49.45,
+    "Technical Issues": 30.24,
+    "Social Media": 28
+  },
+  "picplusphotoeditorpro": {
+    "AI Features": 10285,
+    "User Interface": 2614.5,
+    "Monetization": 417.6,
+    "Video Features": 3568.95,
+    "Performance": 17.16,
+    "Content": 5.9,
+    "Social Media": 11.2,
+    "Technical Issues": 5.76
+  },
+  "piZapdesigneditphotos": {
+    "AI Features": 12110,
+    "Camera & Media": 372.96,
+    "Video Features": 6123.15,
+    "Content": 161.66,
+    "Technical Issues": 194.4,
+    "User Interface": 2724.06,
+    "Performance": 140.14,
+    "Advertising": 47.7,
+    "Social Media": 94.08,
+    "Authentication": 123.05,
+    "Maps & Location": 63.72,
+    "Gaming & Interaction": 29.12,
+    "Customization": 35.02,
+    "Offline Features": 13.26,
+    "Monetization": 532.44,
+    "Collaboration & Access": 6.48
+  },
+  "kinemastervideoeditor": {
+    "Video Features": 18938.7,
+    "AI Features": 14070,
+    "User Interface": 2109.03,
+    "Content": 20.06,
+    "Monetization": 626.4,
+    "Performance": 254.54,
+    "Technical Issues": 25.92,
+    "Social Media": 21.28,
+    "Authentication": 2.3
+  },
+  "photoeditor": {
+    "Monetization": 386.28,
+    "AI Features": 3495,
+    "Video Features": 1876.05,
+    "User Interface": 1800.27,
+    "Performance": 38.61,
+    "Authentication": 13.8,
+    "Technical Issues": 18.72,
+    "Content": 17.7,
+    "Social Media": 3.36
+  }
+}
+}

@@ -29,7 +29,10 @@ const AppFeaturePage = () => {
         body: JSON.stringify({ appName }),
       })
         .then((res) => res.json())
-        .then((data) => setAppDetails(data))
+        .then((data) => {
+          console.log("📦 Backend appDetails response:", data); // <-- LOGGING HERE
+          setAppDetails(data);
+        })
         .catch((err) => console.error("Error fetching app details:", err));
     }
   }, [appName]);
@@ -38,21 +41,25 @@ const AppFeaturePage = () => {
     return <div className="loading">Loading app details...</div>;
   }
 
-  const { domainName, features, domainDescription, googleRating, analysisRating } = appDetails;
+  const { domainName, features, domainDescription, googleRating, analysisRating, featureScores } = appDetails;
   const lowerApp = appName.trim().toLowerCase();
 
-  const featureScores = features.map((feature) => ({
-    feature,
-    score: Math.floor(Math.random() * 5) + 1,
-    app: appName,
-  }));
+  // Normalize feature scores to the range [1, 10]
+  const minScore = Math.min(...Object.values(featureScores));
+  const maxScore = Math.max(...Object.values(featureScores));
 
+  const normalizedFeatureScores = features.map((feature) => {
+    const score = featureScores[feature] || 0;
+    return (score - minScore) / (maxScore - minScore) * (10 - 1) + 1; // Normalize between 1 and 10
+  });
+
+  // Chart data preparation using normalized feature scores
   const chartData = {
-    labels: featureScores.map((f) => f.feature),
+    labels: features,
     datasets: [
       {
         label: `${appName} Feature Score`,
-        data: featureScores.map((f) => f.score),
+        data: normalizedFeatureScores,
         backgroundColor: "rgba(75,192,192,0.2)",
         borderColor: "rgba(75,192,192,1)",
         borderWidth: 2,
@@ -71,9 +78,9 @@ const AppFeaturePage = () => {
         callbacks: {
           label: function (context) {
             const index = context.dataIndex;
-            const feature = featureScores[index].feature;
-            const score = featureScores[index].score;
-            return `${appName} has a score of ${score} for ${feature}`;
+            const feature = features[index];
+            const score = normalizedFeatureScores[index];
+            return `${appName} has a normalized score of ${score.toFixed(2)} for ${feature}`;
           },
         },
       },
@@ -92,10 +99,10 @@ const AppFeaturePage = () => {
       y: {
         title: {
           display: true,
-          text: "Score",
+          text: "Normalized Score",
         },
-        min: 0,
-        max: 5,
+        min: 1,
+        max: 10,
         ticks: {
           stepSize: 1,
         },
@@ -184,12 +191,11 @@ const AppFeaturePage = () => {
           Back to Home
         </button>
         <button
-  className="domain-button"
-  onClick={() => navigate("/domains", { state: { appName, domainName } })}
->
-  Go to Domain Page
-</button>
-
+          className="domain-button"
+          onClick={() => navigate("/domains", { state: { appName, domainName } })}
+        >
+          Go to Domain Page
+        </button>
       </div>
     </div>
   );

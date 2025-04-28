@@ -1,3 +1,6 @@
+
+
+
 /* Professional DomainPage Styles */
 .domain-container {
   background-color: #f5f7fa;
@@ -168,7 +171,11 @@
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   padding: 1.5rem;
+  height: 400px;
+  margin-bottom: 2rem;
 }
+
+
 
 .chart-title {
   font-size: 1.25rem;

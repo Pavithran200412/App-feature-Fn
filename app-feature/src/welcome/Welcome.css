@@ -13,6 +13,11 @@ body {
     justify-content: center;
     min-height: 100vh;
   }
+
+  .domain-search {
+    margin-top: 20px;
+  }
+  
   
   .heading {
     font-size: 4rem;
